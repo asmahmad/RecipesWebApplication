@@ -11,9 +11,9 @@ import com.coderscampus.assignment9.RecipesWebApplication.domain.Recipe;
 
 
 @Service
-public class FileService {
+public class RecipesService {
 	@Autowired
-	HelperService dataReader;
+	RecipesRepository dataReader;
 
 	public List<Recipe> getRecipe() throws IOException {
 		return dataReader.getAllRecipes();

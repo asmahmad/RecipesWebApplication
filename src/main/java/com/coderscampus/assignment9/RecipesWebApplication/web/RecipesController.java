@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coderscampus.assignment9.RecipesWebApplication.domain.Recipe;
-import com.coderscampus.assignment9.RecipesWebApplication.service.FileService;
+import com.coderscampus.assignment9.RecipesWebApplication.service.RecipesService;
 
 @RestController
-public class FileController {
+public class RecipesController {
 	
 	@Autowired
-	private FileService fileService;
+	private RecipesService fileService;
 	
 	
 	@GetMapping("/all-recipes")

@@ -5,13 +5,15 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.coderscampus.assignment9.RecipesWebApplication.domain.Recipe;
-@Service
-public class HelperService {
+
+@Repository
+public class RecipesRepository {
 	private List<Recipe> recipe = new ArrayList<>();
 	private List<Recipe> recipeVegan = new ArrayList<>();
 	private List<Recipe> recipeGlutenFree = new ArrayList<>();
