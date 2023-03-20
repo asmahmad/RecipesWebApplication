@@ -14,13 +14,9 @@ import com.coderscampus.assignment9.RecipesWebApplication.domain.Recipe;
 
 @Repository
 public class RecipesRepository {
-	private List<Recipe> recipe = new ArrayList<>();
-	private List<Recipe> recipeVegan = new ArrayList<>();
-	private List<Recipe> recipeGlutenFree = new ArrayList<>();
-	private List<Recipe> recipeVeganAndGlutenFree = new ArrayList<>();
-	private List<Recipe> recipeVegitarian = new ArrayList<>();
 	
-	public void getData () throws IOException{
+	
+	public List<Recipe>  getAllRecipes() throws IOException{
 
 		//Leveraging Maven to use code for parsing csv file 
 		// FileReader, CSVFormat, CSVRecord
@@ -31,7 +27,7 @@ public class RecipesRepository {
 
 		CSVFormat csvFormat = CSVFormat.DEFAULT.builder().setHeader(HEADERS).setSkipHeaderRecord(true).setEscape('\\').setIgnoreSurroundingSpaces(true).build();		
 		Iterable<CSVRecord> records = csvFormat.parse(in);		
-	
+		List<Recipe> recipe = new ArrayList<>();
 		Recipe newRecipe;
 		for (CSVRecord record : records) {
 			
@@ -54,59 +50,11 @@ public class RecipesRepository {
 		   
 		   //Adding all the recipes in ArrayList recipe:
 		   recipe.add(newRecipe);
-
-		   //Adding all Vegan recipes in ArrayList recipeVegan:
-		   if (vegan){
-			   newRecipe = new Recipe(cookingMinutes,daqiryFree,glutenFree,recipeInstruction, preparationMinutes, pricePerServing,
-					   readyInMinutes,servings,spoonacularScore,title,vegan,vegetarian);
-			   recipeVegan.add(newRecipe);
-		   }
-		   
-		 //Adding all the Gluten-Free in ArrayList:
-		   if (glutenFree){
-			   newRecipe = new Recipe(cookingMinutes,daqiryFree,glutenFree,recipeInstruction, preparationMinutes, pricePerServing,
-					   readyInMinutes,servings,spoonacularScore,title,vegan,vegetarian);
-			   recipeGlutenFree.add(newRecipe);
-		   }
-		   
-		 //Adding all the Vegetarian in ArrayList:
-		   if (vegetarian){
-			   newRecipe = new Recipe(cookingMinutes,daqiryFree,glutenFree,recipeInstruction, preparationMinutes, pricePerServing,
-					   readyInMinutes,servings,spoonacularScore,title,vegan,vegetarian);
-			   recipeVegitarian.add(newRecipe);
-		   }
-		   
-		 //Adding all the Gluten-free & Vegan in ArrayList:
-		   if (glutenFree && vegan){
-			   newRecipe = new Recipe(cookingMinutes,daqiryFree,glutenFree,recipeInstruction, preparationMinutes, pricePerServing,
-					   readyInMinutes,servings,spoonacularScore,title,vegan,vegetarian);
-			   recipeVeganAndGlutenFree.add(newRecipe);
-		   }
-		   
-		}
-				
-
-	}
-	public List<Recipe> getAllRecipes () throws IOException{
-		getData();
+		   		   
+		}				
 		return recipe;
 	}
-	public List<Recipe> getVeganRecipes () throws IOException{
-		getData();
-		return recipeVegan;
-	}
-	public List<Recipe> getGlutenFreeRecipes () throws IOException{
-		getData();
-		return recipeGlutenFree;
-	}
-	public List<Recipe> geteVeganAndGlutenFreeRecipes () throws IOException{
-		getData();
-		return recipeVeganAndGlutenFree;
-	}
-	public List<Recipe> getVegitarianRecipe () throws IOException{
-		getData();
-		return recipeVegitarian;
-	}
+
 	
 }
 	

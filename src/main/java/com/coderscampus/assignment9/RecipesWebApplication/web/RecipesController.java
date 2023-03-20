@@ -16,33 +16,33 @@ import com.coderscampus.assignment9.RecipesWebApplication.service.RecipesService
 public class RecipesController {
 	
 	@Autowired
-	private RecipesService fileService;
+	private RecipesService recipeService;
 	
 	
 	@GetMapping("/all-recipes")
 	public List<Recipe> readlAllRecipes() throws IOException{
-		 return	fileService.getRecipe();
+		 return	recipeService.getRecipe();
 		 
 	}
 	
 	@GetMapping("/gluten-free")
 	public List<Recipe> readlGlutenFree() throws IOException{
-		 return	fileService.getGlutenFree();
+		 return	recipeService.getGlutenFree();
 		 
 	}
 	@GetMapping("/vegan")
 	public List<Recipe> readVegan() throws IOException{
-		 return	fileService.getVegan();
+		 return	recipeService.getVegan();
 		 
 	}
 	@GetMapping("/vegan-and-gluten-free")
 	public List<Recipe> readVeganAndGlutenFree() throws IOException{
-		 return	fileService.getVeganAndGlutenFree();
+		 return	recipeService.getVeganAndGlutenFree();
 		 
 	}
 	@GetMapping("/vegetarian")
 	public List<Recipe> readlVegetarian() throws IOException{
-		 return	fileService.getVegitarian();
+		 return	recipeService.getVegitarian();
 		 
 	}
 	

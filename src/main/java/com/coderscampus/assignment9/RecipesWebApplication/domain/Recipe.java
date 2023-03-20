@@ -1,5 +1,6 @@
 package com.coderscampus.assignment9.RecipesWebApplication.domain;
 
+
 public class Recipe {
 
     private Integer cookingMinutes;
